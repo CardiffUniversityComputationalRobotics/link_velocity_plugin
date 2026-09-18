@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>link_velocity_plugin</name>
+  <version>0.1.0</version>
+  <description>Gazebo Sim system plugin that applies Twist velocity commands to one configured link.</description>
+
+  <maintainer email="steven@example.com">Steven</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>gz-cmake3</depend>
+  <depend>gz-common5</depend>
+  <depend>gz-plugin2</depend>
+  <depend>gz-sim8</depend>
+  <depend>gz-transport13</depend>
+  <depend>gz-msgs10</depend>
+  <depend>gz-math7</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
