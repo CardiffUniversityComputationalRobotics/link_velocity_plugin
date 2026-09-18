@@ -35,8 +35,8 @@ If you don't need those, use the built-in one.
 
 | | |
 |---|---|
-| Gazebo | Sim 8 (Harmonic) — `gz-sim8`, `gz-transport13`, `gz-msgs10`, `gz-math7`, `gz-common5`, `gz-plugin2` |
-| ROS 2 | Humble (only for `ament_cmake` / `colcon`; the plugin itself has no ROS dependency) |
+| Gazebo | Sim 8 (Harmonic), via the Jazzy vendor packages — `gz_sim_vendor`, `gz_transport_vendor`, `gz_msgs_vendor`, `gz_math_vendor`, `gz_common_vendor`, `gz_plugin_vendor` |
+| ROS 2 | Jazzy (only for `ament_cmake` / `colcon`; the plugin itself has no ROS dependency) |
 | Compiler | C++17 |
 
 ## Build

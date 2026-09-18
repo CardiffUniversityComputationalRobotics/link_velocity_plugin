@@ -5,30 +5,31 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(ament_cmake REQUIRED)
-find_package(gz-cmake3 REQUIRED)
-find_package(gz-common5 REQUIRED)
-find_package(gz-plugin2 REQUIRED COMPONENTS register)
-find_package(gz-sim8 REQUIRED)
-find_package(gz-transport13 REQUIRED)
-find_package(gz-msgs10 REQUIRED)
-find_package(gz-math7 REQUIRED)
 
-set(GZ_SIM_VER ${gz-sim8_VERSION_MAJOR})
-set(GZ_COMMON_VER ${gz-common5_VERSION_MAJOR})
-set(GZ_TRANSPORT_VER ${gz-transport13_VERSION_MAJOR})
-set(GZ_MSGS_VER ${gz-msgs10_VERSION_MAJOR})
-set(GZ_MATH_VER ${gz-math7_VERSION_MAJOR})
+find_package(gz_common_vendor REQUIRED)
+find_package(gz-common REQUIRED)
+find_package(gz_math_vendor REQUIRED)
+find_package(gz-math REQUIRED)
+find_package(gz_msgs_vendor REQUIRED)
+find_package(gz-msgs REQUIRED)
+find_package(gz_plugin_vendor REQUIRED)
+find_package(gz-plugin REQUIRED COMPONENTS register)
+find_package(gz_sim_vendor REQUIRED)
+find_package(gz-sim REQUIRED)
+find_package(gz_transport_vendor REQUIRED)
+find_package(gz-transport REQUIRED)
 
 add_library(LinkVelocityPlugin SHARED
   src/LinkVelocityPlugin.cpp
 )
 
-ament_target_dependencies(LinkVelocityPlugin
-  gz-common${GZ_COMMON_VER}
-  gz-sim${GZ_SIM_VER}
-  gz-transport${GZ_TRANSPORT_VER}
-  gz-msgs${GZ_MSGS_VER}
-  gz-math${GZ_MATH_VER}
+target_link_libraries(LinkVelocityPlugin
+  gz-common::core
+  gz-math::core
+  gz-msgs::core
+  gz-plugin::register
+  gz-sim::core
+  gz-transport::core
 )
 
 install(
